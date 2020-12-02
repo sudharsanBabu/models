@@ -14,7 +14,7 @@
     command:
         - export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/research/slim:`pwd`/research
         - pip install -r requirements.txt
-        - unzip /test/inputs/tfrecords/tfrecords.zip -d /test/inputs/tfrecords
+        - unzip /valohai/inputs/tfrecords/tfrecords.zip -d /valohai/inputs/tfrecords
         - python research/deeplab/train.py --atrous_rates=6 --atrous_rates=12 --atrous_rates=18 {parameters}
     inputs:
       - name: tfrecords
