@@ -42,7 +42,7 @@ flags = tf.app.flags
 FLAGS = flags.FLAGS
 
 INPUTS_DIR = os.getenv('VH_INPUTS_DIR', None)
-OUTPUTS_DIR = os.getenv('VH_OUTPUTS_DIR', ".test/repository/trainlog")
+OUTPUTS_DIR = os.getenv('VH_OUTPUTS_DIR', ".valohai/repository/trainlog")
 
 # Settings for multi-GPUs/multi-replicas training.
 
