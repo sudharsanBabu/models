@@ -14,7 +14,7 @@
     command:
         - export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/research/slim:`pwd`/research
         - pip install -r requirements.txt
-        - unzip /valohai/inputs/tfrecords/tfrecords.zip -d /valohai/inputs/tfrecords
+        - unzip /test/inputs/tfrecords/tfrecords.zip -d /test/inputs/tfrecords
         - python research/deeplab/train.py --atrous_rates=6 --atrous_rates=12 --atrous_rates=18 {parameters}
     inputs:
       - name: tfrecords
@@ -64,7 +64,7 @@
         description: "Name of the segmentation dataset."
       - name: train_logdir
         type: string
-        default: "/valohai/repository/trainlog/"
+        default: "/test/repository/trainlog/"
 - pipeline:
     name: Convert and train
     nodes:
