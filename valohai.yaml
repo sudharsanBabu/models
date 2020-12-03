@@ -9,13 +9,15 @@
         default: azure://tcsvalohai/deeplab/data/01ERE/01EREM82KQF8DNWGJT3GNM3Q35/upload/ADEChallengeData2016.zip
 
 - step:
-    name: Train DeepLab model
+    name: Train DeepLab model and convert to forzen graph
     image: tensorflow/tensorflow:1.15.4-gpu-py3
     command:
         - export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/research/slim:`pwd`/research
         - pip install -r requirements.txt
         - unzip /valohai/inputs/tfrecords/tfrecords.zip -d /valohai/inputs/tfrecords
         - python research/deeplab/train.py --atrous_rates=6 --atrous_rates=12 --atrous_rates=18 {parameters}
+        - python research/deeplab/export_model.py 
+
     inputs:
       - name: tfrecords
         default: azure://tcsvalohai/deeplab/data/01ERE/01EREM82KQF8DNWGJT3GNM3Q35/upload/tfrecords.zip
@@ -64,7 +66,7 @@
         description: "Name of the segmentation dataset."
       - name: train_logdir
         type: string
-        default: "/test/repository/trainlog/"
+        default: "/valohai/outputs"
 - pipeline:
     name: Convert and train
     nodes:

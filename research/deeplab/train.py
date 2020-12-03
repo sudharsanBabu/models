@@ -44,7 +44,7 @@ FLAGS = flags.FLAGS
 INPUTS_DIR = os.getenv('VH_INPUTS_DIR', None)
 OUTPUTS_DIR = os.getenv('VH_OUTPUTS_DIR', ".valohai/repository/trainlog")
 directory = "weight_file"
-parent_dir = ".valohai/repository/trainlog/"
+parent_dir = "./valohai/outputs/"
 path = os.path.join(parent_dir, directory) 
 weight_dir = os.mkdir(path)
 
