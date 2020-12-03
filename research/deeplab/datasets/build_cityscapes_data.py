@@ -71,17 +71,22 @@ import sys
 import build_data
 from six.moves import range
 import tensorflow as tf
+import zipfile
+from zipfile import ZipFile
 
 FLAGS = tf.app.flags.FLAGS
 
-tf.app.flags.DEFINE_string('cityscapes_root',
-                           './cityscapes',
-                           'Cityscapes dataset root folder.')
+VH_INPUTS_DIR = os.getenv('VH_INPUTS_DIR')
+VH_OUTPUTS_DIR = os.getenv('VH_OUTPUTS_DIR')
 
-tf.app.flags.DEFINE_string(
-    'output_dir',
-    './tfrecord',
-    'Path to save converted SSTable of TensorFlow examples.')
+# tf.app.flags.DEFINE_string('cityscapes_root',
+#                            './cityscapes',
+#                            'Cityscapes dataset root folder.')
+
+# tf.app.flags.DEFINE_string(
+#     'output_dir',
+#     './tfrecord',
+#     'Path to save converted SSTable of TensorFlow examples.')
 
 
 _NUM_SHARDS = 10
