@@ -16,7 +16,7 @@
         - pip install -r requirements.txt
         - unzip /valohai/inputs/tfrecords/tfrecords.zip -d /valohai/inputs/tfrecords
         - python research/deeplab/train.py --atrous_rates=6 --atrous_rates=12 --atrous_rates=18 {parameters}
-        - python research/deeplab/export_model.py 
+         
 
     inputs:
       - name: tfrecords
